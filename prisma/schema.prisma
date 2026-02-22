@@ -1,0 +1,119 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// ─── FUND CONFIG ──────────────────────────────────────────
+
+model FundStats {
+  id              String   @id @default("singleton")
+  tvl             Float    @default(0)
+  totalFees       Float    @default(0)
+  apy             Float    @default(0)
+  holders         Int      @default(0)
+  weeklyReturn    Float    @default(0)
+  monthlyReturn   Float    @default(0)
+  treasuryAddress String   @default("")
+  updatedAt       DateTime @updatedAt
+
+  @@map("fund_stats")
+}
+
+// ─── PORTFOLIO HOLDINGS ───────────────────────────────────
+
+model PortfolioHolding {
+  id          String   @id @default(cuid())
+  tokenName   String
+  tokenSymbol String
+  allocation  Float    // percentage
+  fees24h     Float    @default(0)
+  volume24h   Float    @default(0)
+  change7d    Float    @default(0)
+  contractAddress String @default("")
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("portfolio_holdings")
+}
+
+// ─── LEADERBOARD (ALL FLAUNCH PROJECTS) ───────────────────
+
+model FlaunchProject {
+  id          String   @id @default(cuid())
+  rank        Int
+  name        String
+  ticker      String
+  fees7d      Float    @default(0)
+  volume7d    Float    @default(0)
+  holders     Int      @default(0)
+  launchedAt  DateTime @default(now())
+  trend       Int      @default(0) // 1=up, -1=down, 0=stable
+  contractAddress String @default("")
+  inFund      Boolean  @default(false)
+  fundAllocation Float? // null if not in fund
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("flaunch_projects")
+}
+
+// ─── FUND ACTIVITY / TRANSACTIONS ─────────────────────────
+
+model FundActivity {
+  id          String   @id @default(cuid())
+  type        String   // rebalance, fee, entry, exit, burn, distribute
+  description String
+  txHash      String?
+  amount      Float?
+  createdAt   DateTime @default(now())
+
+  @@map("fund_activity")
+}
+
+// ─── STAKING ──────────────────────────────────────────────
+
+model StakePosition {
+  id            String   @id @default(cuid())
+  walletAddress String
+  amountStaked  Float
+  stFhfReceived Float
+  stakedAt      DateTime @default(now())
+  unstakeRequestedAt DateTime?
+  unstakedAt    DateTime?
+  isActive      Boolean  @default(true)
+
+  @@index([walletAddress])
+  @@map("stake_positions")
+}
+
+model StakeDistribution {
+  id              String   @id @default(cuid())
+  totalEth        Float
+  totalUsd        Float
+  stakersCount    Int
+  distributedAt   DateTime @default(now())
+  txHash          String?
+
+  @@map("stake_distributions")
+}
+
+// ─── USER WALLET TRACKING ─────────────────────────────────
+
+model User {
+  id            String   @id @default(cuid())
+  walletAddress String   @unique
+  ensName       String?
+  fhfBalance    Float    @default(0)
+  stFhfBalance  Float    @default(0)
+  totalEarnings Float    @default(0)
+  firstSeenAt   DateTime @default(now())
+  lastSeenAt    DateTime @updatedAt
+
+  @@map("users")
+}

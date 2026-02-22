@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Newsreader:ital,wght@0,300;0,400;1,300;1,400&display=swap');
+
+:root {
+  --bg: #050505;
+  --surface: #0A0A0A;
+  --surface-hover: #0F0F0F;
+  --accent: #C8FF00;
+  --accent-dim: rgba(200,255,0,0.12);
+  --accent-border: rgba(200,255,0,0.2);
+  --tx: #E8E6E3;
+  --tx-muted: rgba(255,255,255,0.45);
+  --tx-dim: rgba(255,255,255,0.22);
+  --border: rgba(255,255,255,0.05);
+  --border-light: rgba(255,255,255,0.08);
+  --green: #34D399;
+  --red: #FB7185;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--tx); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+::selection { background: rgba(200,255,0,0.2); color: #fff; }
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.06); border-radius: 2px; }
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; }
+input[type=number] { -moz-appearance: textfield; }
+
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
+.table-row { transition: background 0.15s; }
+.table-row:hover { background: rgba(255,255,255,0.015); }
+.card-hover { transition: background 0.3s; }
+.card-hover:hover { background: var(--surface-hover); }
+
+@keyframes pulse-dot { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+.pulse-dot { animation: pulse-dot 2s ease infinite; }
