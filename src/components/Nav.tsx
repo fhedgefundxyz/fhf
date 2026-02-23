@@ -6,9 +6,9 @@ import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 const links = [
   { href: '/', label: 'fund' },
-  { href: '/dashboard', label: 'dashboard' },
-  { href: '/leaderboard', label: 'leaderboard' },
-  { href: '/stake', label: 'stake' },
+  // { href: '/dashboard', label: 'dashboard' },
+  // { href: '/leaderboard', label: 'leaderboard' },
+  // { href: '/stake', label: 'stake' },
 ];
 
 export default function Nav() {
@@ -28,9 +28,7 @@ export default function Nav() {
       <div className="max-w-[1280px] mx-auto px-6 md:px-10 h-[72px] flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 no-underline">
-          <div className="w-9 h-9 bg-[#C8FF00] rounded-lg flex items-center justify-center font-serif text-lg text-[#050505]">
-            F
-          </div>
+          <img src="/FHF.PNG" className="w-9 h-9 bg-[#80807e] rounded-lg flex items-center justify-center"/>
           <div className="hidden sm:block">
             <div className="font-serif text-[18px] text-[#E8E6E3] tracking-tight leading-none">
               FhedgeFund
@@ -51,18 +49,18 @@ export default function Nav() {
               key={l.href}
               href={l.href}
               className="relative px-4 py-2 rounded-md no-underline font-mono text-[11px] tracking-[0.04em] uppercase transition-colors"
-              style={{ color: isActive(l.href) ? '#C8FF00' : 'rgba(255,255,255,0.45)' }}
+              style={{ color: isActive(l.href) ? '#575854' : 'rgba(255,255,255,0.45)' }}
             >
               {l.label}
               {isActive(l.href) && (
-                <span className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-[3px] h-[3px] rounded-full bg-[#C8FF00]" />
+                <span className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-[3px] h-[3px] rounded-full bg-[#575854]" />
               )}
             </Link>
           ))}
         </nav>
 
         {/* RainbowKit Connect Button */}
-        <ConnectButton.Custom>
+        {/* <ConnectButton.Custom>
           {({ account, chain, openAccountModal, openChainModal, openConnectModal, mounted }) => {
             const ready = mounted;
             const connected = ready && account && chain;
@@ -72,7 +70,7 @@ export default function Nav() {
                 {!connected ? (
                   <button
                     onClick={openConnectModal}
-                    className="bg-[#C8FF00] text-[#050505] px-5 py-2.5 rounded-lg font-mono text-[11px] font-semibold tracking-[0.06em] uppercase cursor-pointer transition-transform hover:-translate-y-px"
+                    className="bg-[#575854] text-[#050505] px-5 py-2.5 rounded-lg font-mono text-[11px] font-semibold tracking-[0.06em] uppercase cursor-pointer transition-transform hover:-translate-y-px"
                     style={{ boxShadow: '0 2px 12px rgba(200,255,0,0.15)' }}
                   >
                     Connect
@@ -106,7 +104,7 @@ export default function Nav() {
                       style={{
                         background: 'rgba(200,255,0,0.12)',
                         border: '1px solid rgba(200,255,0,0.2)',
-                        color: '#C8FF00',
+                        color: '#575854',
                       }}
                     >
                       {account.displayName}
@@ -121,7 +119,7 @@ export default function Nav() {
               </div>
             );
           }}
-        </ConnectButton.Custom>
+        </ConnectButton.Custom> */}
       </div>
     </header>
   );

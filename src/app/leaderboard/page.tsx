@@ -14,13 +14,13 @@ export default function LeaderboardPage() {
       <Reveal>
         <div className="flex flex-col md:flex-row justify-between md:items-end mb-[52px] gap-4">
           <div>
-            <div className="font-mono text-[10px] text-[#C8FF00] tracking-[0.14em] uppercase mb-3">Flaunch Ecosystem</div>
+            <div className="font-mono text-[10px] text-[#575854] tracking-[0.14em] uppercase mb-3">Flaunch Ecosystem</div>
             <h1 className="font-serif text-[36px] md:text-[44px] font-normal text-[#E8E6E3] tracking-[-0.03em]">Leaderboard</h1>
           </div>
           <div className="flex gap-[3px]">
             {[{ k: 'fees7d', l: 'Fees' }, { k: 'volume7d', l: 'Volume' }, { k: 'holders', l: 'Holders' }].map((s) => (
               <button key={s.k} onClick={() => setSort(s.k)} className="px-3.5 py-[7px] rounded-md font-mono text-[10px] cursor-pointer"
-                style={{ background: sort === s.k ? 'var(--accent-dim)' : 'transparent', border: `1px solid ${sort === s.k ? 'var(--accent-border)' : 'var(--border)'}`, color: sort === s.k ? '#C8FF00' : 'var(--tx-dim)' }}>
+                style={{ background: sort === s.k ? 'var(--accent-dim)' : 'transparent', border: `1px solid ${sort === s.k ? 'var(--accent-border)' : 'var(--border)'}`, color: sort === s.k ? '#575854' : 'var(--tx-dim)' }}>
                 {s.l}
               </button>
             ))}
@@ -47,7 +47,7 @@ export default function LeaderboardPage() {
                     return (
                       <tr key={p.id} className="table-row">
                         <td className="p-4" style={{ borderBottom: '1px solid var(--border)' }}>
-                          <span className="font-serif text-base" style={{ color: p.rank <= 3 ? '#C8FF00' : 'var(--tx-dim)', fontStyle: p.rank <= 3 ? 'italic' : 'normal' }}>{p.rank}</span>
+                          <span className="font-serif text-base" style={{ color: p.rank <= 3 ? '#575854' : 'var(--tx-dim)', fontStyle: p.rank <= 3 ? 'italic' : 'normal' }}>{p.rank}</span>
                         </td>
                         <td className="p-4 font-serif text-base text-[#E8E6E3]" style={{ borderBottom: '1px solid var(--border)' }}>{p.name}</td>
                         <td className="p-4 font-mono text-xs text-[#34D399]" style={{ borderBottom: '1px solid var(--border)' }}>{fmt(p.fees7d)}</td>
@@ -61,7 +61,7 @@ export default function LeaderboardPage() {
                         </td>
                         <td className="p-4" style={{ borderBottom: '1px solid var(--border)' }}>
                           {p.inFund && p.fundAllocation ? (
-                            <span className="inline-flex items-center gap-[5px] rounded-[5px] px-2.5 py-[3px] font-mono text-[10px] text-[#C8FF00]"
+                            <span className="inline-flex items-center gap-[5px] rounded-[5px] px-2.5 py-[3px] font-mono text-[10px] text-[#575854]"
                               style={{ background: 'var(--accent-dim)', border: '1px solid var(--accent-border)' }}>
                               {p.fundAllocation}% allocated
                             </span>

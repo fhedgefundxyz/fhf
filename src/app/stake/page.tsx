@@ -24,7 +24,7 @@ export default function StakePage() {
     <div className="max-w-[1280px] mx-auto px-6 md:px-10 pt-28 pb-20">
       <Reveal>
         <div className="text-center mb-14">
-          <div className="font-mono text-[10px] text-[#C8FF00] tracking-[0.14em] uppercase mb-3">Yield Module</div>
+          <div className="font-mono text-[10px] text-[#575854] tracking-[0.14em] uppercase mb-3">Yield Module</div>
           <h1 className="font-serif text-[36px] md:text-[44px] font-normal text-[#E8E6E3] tracking-[-0.03em] mb-2.5">Stake & Earn</h1>
           <p className="font-body text-[17px] font-light" style={{ color: 'var(--tx-muted)' }}>Stake FHF to receive ETH from fund revenue distributions</p>
         </div>
@@ -34,7 +34,7 @@ export default function StakePage() {
       <Reveal delay={100}>
         <div className="grid grid-cols-2 md:grid-cols-4 rounded-[14px] overflow-hidden mb-10" style={{ gap: 1, background: 'var(--border)' }}>
           {[
-            { l: 'Current APY', v: stats ? `${stats.apy}%` : '—', c: '#C8FF00' },
+            { l: 'Current APY', v: stats ? `${stats.apy}%` : '—', c: '#575854' },
             { l: 'Total Staked', v: staking ? fmt(staking.totalStaked) : '—', c: '#E8E6E3' },
             { l: 'Your Earnings', v: '0 ETH', c: '#34D399' },
             { l: 'Next Distribution', v: '4d 12h', c: '#E8E6E3' },
@@ -55,7 +55,7 @@ export default function StakePage() {
             {(['stake', 'unstake'] as const).map((t) => (
               <button key={t} onClick={() => setTab(t)}
                 className="flex-1 py-2.5 rounded-md font-mono text-[11px] tracking-[0.06em] uppercase cursor-pointer transition-all"
-                style={{ background: tab === t ? 'var(--accent-dim)' : 'transparent', border: `1px solid ${tab === t ? 'var(--accent-border)' : 'transparent'}`, color: tab === t ? '#C8FF00' : 'var(--tx-dim)' }}>
+                style={{ background: tab === t ? 'var(--accent-dim)' : 'transparent', border: `1px solid ${tab === t ? 'var(--accent-border)' : 'transparent'}`, color: tab === t ? '#575854' : 'var(--tx-dim)' }}>
                 {t}
               </button>
             ))}
@@ -73,7 +73,7 @@ export default function StakePage() {
               <input type="number" value={amt} onChange={(e) => setAmt(e.target.value)} placeholder="0.00"
                 className="flex-1 bg-transparent border-none outline-none font-serif text-[32px] md:text-[36px] font-normal text-[#E8E6E3] tracking-[-0.02em]" />
               <div className="flex items-center gap-[7px] rounded-lg px-3 py-2" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid var(--border)' }}>
-                <div className="w-5 h-5 rounded-[5px] bg-[#C8FF00] flex items-center justify-center font-serif text-[11px] text-[#050505]">F</div>
+                <div className="w-5 h-5 rounded-[5px] bg-[#575854] flex items-center justify-center font-serif text-[11px] text-[#050505]">F</div>
                 <span className="font-mono text-xs text-[#E8E6E3] font-medium">FHF</span>
               </div>
             </div>
@@ -112,7 +112,7 @@ export default function StakePage() {
               disabled={!amt || parseFloat(amt) <= 0 || stakeMutation.isPending}
               className="w-full py-[15px] rounded-[10px] font-mono text-xs font-semibold tracking-[0.06em] uppercase transition-all disabled:cursor-not-allowed"
               style={{
-                background: amt ? '#C8FF00' : 'rgba(255,255,255,0.04)',
+                background: amt ? '#575854' : 'rgba(255,255,255,0.04)',
                 border: amt ? 'none' : '1px solid var(--border)',
                 color: amt ? '#050505' : 'var(--tx-dim)',
               }}>

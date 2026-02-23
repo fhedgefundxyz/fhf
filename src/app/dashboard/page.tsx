@@ -16,13 +16,13 @@ export default function DashboardPage() {
       <Reveal>
         <div className="flex flex-col md:flex-row justify-between md:items-end mb-[52px] gap-4">
           <div>
-            <div className="font-mono text-[10px] text-[#C8FF00] tracking-[0.14em] uppercase mb-3">Fund Performance</div>
+            <div className="font-mono text-[10px] text-[#575854] tracking-[0.14em] uppercase mb-3">Fund Performance</div>
             <h1 className="font-serif text-[36px] md:text-[44px] font-normal text-[#E8E6E3] tracking-[-0.03em]">Dashboard</h1>
           </div>
           <div className="flex gap-[3px]">
             {['24h', '7d', '30d', 'All'].map((t) => (
               <button key={t} onClick={() => setTf(t)} className="px-3.5 py-[7px] rounded-md font-mono text-[10px] tracking-[0.06em] cursor-pointer"
-                style={{ background: tf === t ? 'var(--accent-dim)' : 'transparent', border: `1px solid ${tf === t ? 'var(--accent-border)' : 'var(--border)'}`, color: tf === t ? '#C8FF00' : 'var(--tx-dim)' }}>
+                style={{ background: tf === t ? 'var(--accent-dim)' : 'transparent', border: `1px solid ${tf === t ? 'var(--accent-border)' : 'var(--border)'}`, color: tf === t ? '#575854' : 'var(--tx-dim)' }}>
                 {t}
               </button>
             ))}
@@ -68,7 +68,7 @@ export default function DashboardPage() {
                       <tr key={h.id} className="table-row">
                         <td className="p-[14px_12px]" style={{ borderBottom: '1px solid var(--border)' }}>
                           <div className="flex items-center gap-2.5">
-                            <div className="w-[30px] h-[30px] rounded-[7px] flex items-center justify-center font-mono text-[9px] font-semibold text-[#C8FF00]"
+                            <div className="w-[30px] h-[30px] rounded-[7px] flex items-center justify-center font-mono text-[9px] font-semibold text-[#575854]"
                               style={{ background: `rgba(200,255,0,${0.04 + i * 0.015})`, border: `1px solid rgba(200,255,0,${0.08 + i * 0.02})` }}>
                               {h.tokenSymbol.slice(0, 2)}
                             </div>
@@ -78,7 +78,7 @@ export default function DashboardPage() {
                         <td className="p-[14px_12px]" style={{ borderBottom: '1px solid var(--border)' }}>
                           <div className="flex items-center gap-2.5">
                             <div className="w-12 h-[3px] rounded-sm" style={{ background: 'rgba(255,255,255,0.04)' }}>
-                              <div className="h-full rounded-sm bg-[#C8FF00] opacity-60" style={{ width: `${(h.allocation / 22) * 100}%` }} />
+                              <div className="h-full rounded-sm bg-[#575854] opacity-60" style={{ width: `${(h.allocation / 22) * 100}%` }} />
                             </div>
                             <span className="font-mono text-xs" style={{ color: 'var(--tx-muted)' }}>{h.allocation}%</span>
                           </div>
@@ -103,7 +103,7 @@ export default function DashboardPage() {
             <div className="flex-1 flex flex-col gap-3.5">
               {portfolio?.map((h, i) => (
                 <div key={h.id} className="flex items-center gap-2.5">
-                  <div className="w-1 h-1 rounded-full bg-[#C8FF00]" style={{ opacity: 1 - i * 0.1 }} />
+                  <div className="w-1 h-1 rounded-full bg-[#575854]" style={{ opacity: 1 - i * 0.1 }} />
                   <span className="font-body text-sm flex-1" style={{ color: 'var(--tx-muted)' }}>{h.tokenName}</span>
                   <span className="font-mono text-[11px]" style={{ color: 'var(--tx-dim)' }}>{h.allocation}%</span>
                 </div>
@@ -111,7 +111,7 @@ export default function DashboardPage() {
             </div>
             <div className="mt-7 p-[18px_16px] rounded-[10px]" style={{ background: 'rgba(200,255,0,0.03)', border: '1px solid var(--accent-border)' }}>
               <div className="font-mono text-[9px] tracking-[0.1em] uppercase mb-2" style={{ color: 'var(--tx-dim)' }}>Treasury Multisig</div>
-              <div className="font-mono text-[11.5px] text-[#C8FF00]">{stats?.treasuryAddress ? `${stats.treasuryAddress.slice(0, 10)}...${stats.treasuryAddress.slice(-6)}` : '—'}</div>
+              <div className="font-mono text-[11.5px] text-[#575854]">{stats?.treasuryAddress ? `${stats.treasuryAddress.slice(0, 10)}...${stats.treasuryAddress.slice(-6)}` : '—'}</div>
               <div className="font-mono text-[9.5px] mt-1.5" style={{ color: 'var(--tx-dim)' }}>Verifiable on Basescan ↗</div>
             </div>
           </div>
@@ -129,7 +129,7 @@ export default function DashboardPage() {
                   style={{
                     background: a.type === 'fee' || a.type === 'distribute' ? 'rgba(52,211,153,0.06)' : a.type === 'burn' ? 'rgba(251,113,133,0.06)' : 'rgba(200,255,0,0.04)',
                     border: `1px solid ${a.type === 'fee' || a.type === 'distribute' ? 'rgba(52,211,153,0.12)' : a.type === 'burn' ? 'rgba(251,113,133,0.12)' : 'var(--accent-border)'}`,
-                    color: a.type === 'fee' || a.type === 'distribute' ? '#34D399' : a.type === 'burn' ? '#FB7185' : '#C8FF00',
+                    color: a.type === 'fee' || a.type === 'distribute' ? '#34D399' : a.type === 'burn' ? '#FB7185' : '#575854',
                   }}>
                   {a.type === 'fee' ? '$' : a.type === 'burn' ? '↓' : a.type === 'distribute' ? '◆' : '↻'}
                 </div>
